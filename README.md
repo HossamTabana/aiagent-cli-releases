@@ -345,7 +345,7 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and updates.
 For issues, questions, or feature requests, please contact:
 
 **Hossam Tabana**
-📧 [your-email@example.com](mailto:your-email@example.com)
+📧 [hossam.tabana@gmail.com](mailto:hossam.tabana@gmail.com)
 
 ## License
 
