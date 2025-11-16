@@ -5,6 +5,30 @@ All notable changes to AI Agent CLI will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2025-11-16
+
+### Added
+- **PyPI Package Distribution** - AI Agent CLI is now available on PyPI at [https://pypi.org/project/aiagent-2025/](https://pypi.org/project/aiagent-2025/)
+  - Simplified installation via `pip install aiagent-2025`
+  - Easier package management and updates
+  - Standard Python packaging for wider accessibility
+
+### Installation
+
+Install directly from PyPI:
+
+```bash
+pip install aiagent-2025
+```
+
+Or install via uvx from GitHub releases:
+
+```bash
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
+```
+
+---
+
 ## [0.1.0] - 2025-11-16
 
 ### Initial Release
@@ -158,7 +182,27 @@ Items planned for future releases:
 
 ---
 
-## Release Asset
+## Release Assets
+
+### v0.1.2
+
+**PyPI Package:** [aiagent-2025](https://pypi.org/project/aiagent-2025/)
+
+**Installation:**
+```bash
+pip install aiagent-2025
+```
+
+**Wheel file:** `aiagent_cli-0.1.2-py3-none-any.whl`
+
+**GitHub Installation:**
+```bash
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
+```
+
+---
+
+### v0.1.0
 
 **Wheel file:** `aiagent_cli-0.1.0-py3-none-any.whl`
 

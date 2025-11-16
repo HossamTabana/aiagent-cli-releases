@@ -40,8 +40,16 @@ AI Agent CLI is a powerful command-line tool that leverages Databricks AI to:
 
 ### Install Latest Version
 
+**Option 1: Install from PyPI (Recommended)**
+
 ```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.0/aiagent_cli-0.1.0-py3-none-any.whl
+pip install aiagent-2025
+```
+
+**Option 2: Install from GitHub Releases**
+
+```bash
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
 ```
 
 The tool will be globally available as `aiagent` from any directory.
@@ -52,7 +60,7 @@ The tool will be globally available as `aiagent` from any directory.
 aiagent --version
 ```
 
-You should see: `aiagent, version 0.1.0`
+You should see: `aiagent, version 0.1.2`
 
 ## Configuration
 
@@ -259,14 +267,17 @@ your-project/
 
 ### "Command not found: aiagent"
 
-**Solution:** Ensure uvx installed correctly and shell restarted.
+**Solution:** Ensure installation completed successfully.
 
 ```bash
-# Verify uvx is available
+# If installed via pip
+pip install --upgrade aiagent-2025
+
+# If installed via uvx, verify uvx is available
 uvx --version
 
-# Reinstall
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.0/aiagent_cli-0.1.0-py3-none-any.whl
+# Reinstall via uvx
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
 ```
 
 ### "Databricks authentication failed"
@@ -322,16 +333,30 @@ aiagent understand --disable-parallel
 
 To upgrade to a new version:
 
+**If installed via pip:**
 ```bash
-# Install new version (replace v0.1.0 with latest version)
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.2.0/aiagent_cli-0.2.0-py3-none-any.whl
+pip install --upgrade aiagent-2025
+```
 
-# Verify new version
+**If installed via uvx:**
+```bash
+# Install new version (replace version number with latest)
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_cli-0.1.3-py3-none-any.whl
+```
+
+**Verify new version:**
+```bash
 aiagent --version
 ```
 
 ## Uninstallation
 
+**If installed via pip:**
+```bash
+pip uninstall aiagent-2025
+```
+
+**If installed via uvx:**
 ```bash
 uvx uninstall aiagent-cli
 ```
