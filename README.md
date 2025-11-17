@@ -49,7 +49,7 @@ pip install aiagent-2025
 **Option 2: Install from GitHub Releases**
 
 ```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
 ```
 
 The tool will be globally available as `aiagent` from any directory.
@@ -60,7 +60,7 @@ The tool will be globally available as `aiagent` from any directory.
 aiagent --version
 ```
 
-You should see: `aiagent, version 0.1.2`
+You should see: `aiagent, version 0.1.3`
 
 ## Configuration
 
@@ -277,7 +277,7 @@ pip install --upgrade aiagent-2025
 uvx --version
 
 # Reinstall via uvx
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
 ```
 
 ### "Databricks authentication failed"
@@ -341,7 +341,7 @@ pip install --upgrade aiagent-2025
 **If installed via uvx:**
 ```bash
 # Install new version (replace version number with latest)
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_cli-0.1.3-py3-none-any.whl
+uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
 ```
 
 **Verify new version:**
