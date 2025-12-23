@@ -40,19 +40,58 @@ AI Agent CLI is a powerful command-line tool that leverages Databricks AI to:
 
 ### Install Latest Version
 
-**Option 1: Install from PyPI (Recommended)**
+**Method 1: From PyPI (Recommended)**
+
+Install from PyPI (Python Package Index):
 
 ```bash
-pip install aiagent-2025
+uv tool install aiagent-2025
 ```
 
-**Option 2: Install from GitHub Releases**
+That's it! The tool will be globally available as `aiagent` from any directory.
+
+---
+
+### Alternative: Offline Installation (For Restricted Networks)
+
+If your network blocks PyPI access, you can install directly from GitHub releases:
+
+**Option A: Direct URL Installation (If GitHub is accessible)**
 
 ```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
+uv tool install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.4/aiagent_2025-0.1.4-py3-none-any.whl
 ```
 
-The tool will be globally available as `aiagent` from any directory.
+**Option B: Download and Install Locally (Fully Offline)**
+
+1. Download the wheel file from [GitHub Releases](https://github.com/HossamTabana/aiagent-cli-releases/releases/tag/v0.1.4)
+2. Transfer to the target machine (USB, network share, etc.)
+3. Install locally:
+
+```bash
+uv tool install ./aiagent_2025-0.1.4-py3-none-any.whl
+```
+
+**Option C: Internal Network Share**
+
+If you have access to an internal file server:
+
+```bash
+# Windows
+uv tool install \\server\share\aiagent_2025-0.1.4-py3-none-any.whl
+
+# Linux/macOS
+uv tool install /mnt/shared/aiagent_2025-0.1.4-py3-none-any.whl
+```
+
+---
+
+**Other installation methods (if PyPI is accessible):**
+
+```bash
+# Using pipx (for isolated tool installation)
+pipx install aiagent-2025
+```
 
 ### Verify Installation
 
@@ -60,7 +99,7 @@ The tool will be globally available as `aiagent` from any directory.
 aiagent --version
 ```
 
-You should see: `aiagent, version 0.1.3`
+You should see: `aiagent, version 0.1.4`
 
 ## Configuration
 
@@ -267,17 +306,16 @@ your-project/
 
 ### "Command not found: aiagent"
 
-**Solution:** Ensure installation completed successfully.
+**Solution:** Ensure uv is installed correctly and shell restarted.
 
 ```bash
-# If installed via pip
-pip install --upgrade aiagent-2025
+# Verify uv is available
+uv --version
 
-# If installed via uvx, verify uvx is available
-uvx --version
+# Reinstall from PyPI
+uv tool install aiagent-2025
 
-# Reinstall via uvx
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
+# If still not found, restart your terminal
 ```
 
 ### "Databricks authentication failed"
@@ -331,34 +369,20 @@ aiagent understand --disable-parallel
 
 ## Upgrading
 
-To upgrade to a new version:
+To upgrade to the latest version from PyPI:
 
-**If installed via pip:**
 ```bash
-pip install --upgrade aiagent-2025
-```
+# Upgrade to latest version
+uv tool install --upgrade aiagent
 
-**If installed via uvx:**
-```bash
-# Install new version (replace version number with latest)
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
-```
-
-**Verify new version:**
-```bash
+# Verify new version
 aiagent --version
 ```
 
 ## Uninstallation
 
-**If installed via pip:**
 ```bash
-pip uninstall aiagent-2025
-```
-
-**If installed via uvx:**
-```bash
-uvx uninstall aiagent-cli
+uv tool uninstall aiagent
 ```
 
 ## Changelog
@@ -370,7 +394,7 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and updates.
 For issues, questions, or feature requests, please contact:
 
 **Hossam Tabana**
-📧 [hossam.tabana@gmail.com](mailto:hossam.tabana@gmail.com)
+📧 [your-email@example.com](mailto:your-email@example.com)
 
 ## License
 

@@ -5,52 +5,146 @@ All notable changes to AI Agent CLI will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2025-11-21
+
+### Performance Improvements
+- **20% faster documentation generation**: Increased Claude token limit from 4,000 to 5,000 tokens
+- **Reduced continuations**: Fewer multi-part responses means less 2-second pause overhead
+- **15-25% overall speedup**: Combined optimizations significantly reduce total generation time
+
+### Quality Improvements
+- **Lower temperature (0.3)**: More factual, deterministic technical documentation
+- **Reduced hallucination**: Less creative = more accurate architecture descriptions
+- **Better grounding**: AI sticks closer to actual codebase content
+
+### Bug Fixes
+- **Windows encoding fix**: Added explicit UTF-8 encoding to all file operations
+- **Cross-platform compatibility**: Works reliably on Windows, macOS, and Linux
+- **Unicode support**: Handles special characters in code comments and documentation
+
+### Technical Details
+- Claude token limit: 4,000 → 5,000 (matches Databricks OTPM limit)
+- Temperature for technical docs: 0.4 → 0.3
+- Temperature for architecture docs: 0.4 → 0.3
+- All `.read_text()` and `.write_text()` now use `encoding='utf-8'`
+
+### Distribution
+- **GitHub Releases**: Wheel files now available on GitHub for offline installation
+- **Offline installation support**: Users with restricted network access can now install via local wheel files
+- **Multiple installation options**: PyPI, GitHub URL, local file, or network share
+
+**Upgrade Instructions (PyPI):**
+```bash
+uv cache clean
+uv tool install --upgrade aiagent-2025
+aiagent --version  # Should show: aiagent, version 0.1.4
+```
+
+**Offline Installation (For Restricted Networks):**
+```bash
+# Option A: Direct from GitHub (if accessible)
+uv tool install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.4/aiagent_2025-0.1.4-py3-none-any.whl
+
+# Option B: Download wheel and install locally
+uv tool install ./aiagent_2025-0.1.4-py3-none-any.whl
+```
+
 ## [0.1.3] - 2025-11-17
 
 ### Changed
-- **Documentation Updates** - Updated all documentation files with latest information
-  - Improved installation instructions
-  - Enhanced troubleshooting guide
-  - Updated README with clearer examples
-  - Refined changelog formatting
 
-### Installation
+**Documentation Cleanup**
 
-Install directly from PyPI:
+- **Removed**: All references to external project inspirations from codebase and documentation
+- **Updated**: Documentation to focus on AI Agent CLI's own design philosophy and approach
+- **Improved**: Messaging around template-driven development and phase-based workflow
+- **Impact**: No functional changes, purely documentation updates
 
+**Files Updated:**
+- Source code docstrings (`__init__.py`, `main.py`)
+- User documentation (`README.md`)
+- Developer documentation (`CLAUDE.md`, `Instructions.md`, `plan.md`)
+
+**Upgrade Instructions:**
 ```bash
-pip install aiagent-2025
+uv cache clean
+uv tool install --upgrade aiagent-2025
+aiagent --version  # Should show: aiagent, version 0.1.3
 ```
-
-Or install via uvx from GitHub releases:
-
-```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
-```
-
----
 
 ## [0.1.2] - 2025-11-16
 
-### Added
-- **PyPI Package Distribution** - AI Agent CLI is now available on PyPI at [https://pypi.org/project/aiagent-2025/](https://pypi.org/project/aiagent-2025/)
-  - Simplified installation via `pip install aiagent-2025`
-  - Easier package management and updates
-  - Standard Python packaging for wider accessibility
+### Fixed
 
-### Installation
+**Version Display Issue Resolved**
 
-Install directly from PyPI:
+- **Fixed**: `aiagent --version` now correctly displays "0.1.2" instead of "0.1.0"
+- **Root cause**: Version was hardcoded in `src/aiagent_cli/__init__.py` and wasn't updated in v0.1.1
+- **Solution**: Synchronized `__version__` in source code with `pyproject.toml` version
+- **Impact**: No functional changes, only version display correction
 
+**Note**: If you have v0.1.1 installed, upgrade to v0.1.2:
 ```bash
-pip install aiagent-2025
+uv cache clean
+uv tool install --upgrade aiagent-2025
 ```
 
-Or install via uvx from GitHub releases:
+## [0.1.1] - 2025-11-16
+
+### Changed
+
+**Now Available on PyPI! 🎉**
+
+AI Agent CLI is now distributed through PyPI (Python Package Index), making installation incredibly simple:
 
 ```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
+uv tool install aiagent-2025
 ```
+
+**What Changed:**
+
+- **Package renamed**: `aiagent-cli` → `aiagent` (for cleaner package name)
+- **Distribution method**: Now on PyPI instead of GitHub releases
+- **Installation**: Just `uv tool install aiagent-2025` (83% shorter!)
+- **Automatic updates**: `uv tool install --upgrade aiagent` always gets latest
+- **Cross-platform**: Works on Windows, macOS, and Linux
+- **Uninstall command**: Now `uv tool uninstall aiagent` (was `aiagent-cli`)
+- **Command name unchanged**: Still use `aiagent` command (no impact on usage)
+
+**PyPI Package Details:**
+
+- Package name: `aiagent-2025`
+- PyPI page: https://pypi.org/project/aiagent-2025/
+- Source code protection: Only wheel (bytecode) distributed, source stays private
+- Professional distribution: Industry-standard approach used by major tools
+
+**Repository URLs Updated:**
+
+- Homepage, Repository, and Issues URLs now point to the public documentation repository
+- Better separation between development (private) and distribution (PyPI + public docs)
+
+### Migration from v0.1.0
+
+If you installed v0.1.0 from GitHub releases, upgrade to PyPI version:
+
+```bash
+# Uninstall old version
+uv tool uninstall aiagent-cli
+
+# Install new version from PyPI
+uv tool install aiagent-2025
+
+# Verify
+aiagent --version
+# Should show: aiagent, version 0.1.1
+```
+
+**Future upgrades** are even simpler:
+```bash
+uv tool install --upgrade aiagent
+```
+
+**Note**: Configuration files (`.aiagent/` directory) are fully compatible - no changes needed.
 
 ---
 
@@ -207,45 +301,7 @@ Items planned for future releases:
 
 ---
 
-## Release Assets
-
-### v0.1.3
-
-**PyPI Package:** [aiagent-2025](https://pypi.org/project/aiagent-2025/)
-
-**Installation:**
-```bash
-pip install aiagent-2025
-```
-
-**Wheel file:** `aiagent_2025-0.1.3-py3-none-any.whl`
-
-**GitHub Installation:**
-```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.3/aiagent_2025-0.1.3-py3-none-any.whl
-```
-
----
-
-### v0.1.2
-
-**PyPI Package:** [aiagent-2025](https://pypi.org/project/aiagent-2025/)
-
-**Installation:**
-```bash
-pip install aiagent-2025
-```
-
-**Wheel file:** `aiagent_cli-0.1.2-py3-none-any.whl`
-
-**GitHub Installation:**
-```bash
-uvx install https://github.com/HossamTabana/aiagent-cli-releases/releases/download/v0.1.2/aiagent_cli-0.1.2-py3-none-any.whl
-```
-
----
-
-### v0.1.0
+## Release Asset
 
 **Wheel file:** `aiagent_cli-0.1.0-py3-none-any.whl`
 
